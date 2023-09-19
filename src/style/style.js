@@ -10,7 +10,11 @@ export const DashContainer = styled.div`
 `;
 
 export const ClimateResumeContainer = styled.div`
+  width: 20%;
   display: flex;
   justify-content: space-between;
-  width: 20%;
+  border-radius: 16px;
+  padding: 16px;
+  background-color: #808080;
+  color: white;
 `;
