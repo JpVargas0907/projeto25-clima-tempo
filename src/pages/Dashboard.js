@@ -6,12 +6,21 @@ import { DashContainer } from "../style/style";
 
 export default function Dashboard() {
   const [geoLocalizaton, setGeoLocalization] = useState([]);
-  console.log(geoLocalizaton);
+  const { lon, lat, name } = geoLocalizaton;
+  const [searchState, setSearchState] = useState(false);
 
   return (
     <DashContainer>
-      <SearchBar setGeoLocalization={setGeoLocalization} />
-      <ClimateResume />
+      <SearchBar
+        setGeoLocalization={setGeoLocalization}
+        setSearchState={setSearchState}
+      />
+      <ClimateResume
+        name={name}
+        lat={lat}
+        lon={lon}
+        searchState={searchState}
+      />
       <GraphicResume />
     </DashContainer>
   );

@@ -2,14 +2,14 @@ import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import axios from "axios";
 
-export default function SearchBar({ setGeoLocalization }) {
+export default function SearchBar({ setGeoLocalization, setSearchState }) {
   const [input, setInput] = useState("");
-  const API_KEY = process.env.REACT_APP_API_KEY;
+  const API_KEY = "0cd0669390d2610bbed832494448330e";
   const API_URL = "http://api.openweathermap.org/geo/1.0/direct";
-  console.log(API_KEY);
 
   const searchGeoLocalization = async (event) => {
     event.preventDefault();
+    setSearchState(true);
 
     try {
       const result = await axios.get(
@@ -17,7 +17,7 @@ export default function SearchBar({ setGeoLocalization }) {
       );
 
       setGeoLocalization(result.data);
-      console.log(result.data);
+      setSearchState(false);
     } catch (error) {
       window.alert(error.message);
     }
